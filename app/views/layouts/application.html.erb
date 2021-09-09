@@ -17,10 +17,7 @@
   </head>
   <body>
   <%= render "home/header" %>
-    <br>
-    <%if notice %>
-      <%= render "layouts/alerts" %>
-    <%end %>
+    <%= notice %>
     
     <%= yield %>
     <!-- Optional JavaScript; choose one of the two! -->

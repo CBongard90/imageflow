@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# About This App
+
+* This is an application that will accept images with a title and a description for image sharing. It will use the same concept as Pinterest with various users.
+* Bootstrap will be the main style editor

@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+footer{
+  background-color: hsl(216, 98%, 52%);
+  color: aliceblue;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

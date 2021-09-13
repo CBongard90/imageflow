@@ -64,6 +64,6 @@ class FlowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flow_params
-      params.require(:flow).permit(:title, :description,:user_id)
+      params.require(:flow).permit(:title, :description,:user_id,:image)
     end
 end

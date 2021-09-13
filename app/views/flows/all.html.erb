@@ -1,0 +1,23 @@
+<h1>All Images</h1>
+<div class="container">
+  <% @flows.each do |flow| %>
+  
+  <div class="card" style="width: 20rem;">
+    <%=link_to( image_tag(flow.image ,:class => "card-img-top"),flow )%>
+    <div class="card-body">
+      <h5 class="card-title"><%= flow.title %></h5>
+      <p class="card-text"><%= flow.description %></p>
+      <p class="card-text">User ID: <%= flow.user_id %></p> 
+      <%= link_to 'Show', flow,class:"btn btn-primary" %></a>
+    </div>
+  </div>
+  
+  <% end %>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<br>

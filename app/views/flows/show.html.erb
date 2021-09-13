@@ -7,6 +7,9 @@
   <strong>Description:</strong>
   <%= @flow.description %>
 </p>
-
+<%if notice%>
+<%= link_to 'New Flow', new_flow_path %>
+<%end%>
 <%= link_to 'Edit', edit_flow_path(@flow) %> |
 <%= link_to 'Back', flows_path %>
+<%= link_to 'Delete', @flow, method: :delete, data: { confirm: 'Are you sure?' } %>

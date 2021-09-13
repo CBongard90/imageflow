@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
   <div class="container-fluid">
     <%= link_to "ImageFlow", root_path,class:'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    
+      
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -13,12 +13,21 @@
           <li class="nav-item">
             <%= link_to "My Images", flows_path,class:"nav-link active" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path,method: :delete,class:"nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Edit Profile", edit_user_registration_path,class:"nav-link active" %>
-          </li>
+          
+          
+          <%= image_tag((current_user.avatar_thumbnail),:class => "avatar_navbar") %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "View My Profile", edit_user_registration_path,class:"dropdown-item" %></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path,class:"dropdown-item" %></li>
+            
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path,method: :delete,class:"dropdown-item" %></li>
+          </ul>
+        </li>
         <%else%>
           <li class="nav-item">
             <%= link_to "Sign Up", new_user_registration_path,class:"nav-link active" %>
@@ -32,10 +41,14 @@
         </li>
         
       </ul>
-      <form class="d-flex">
+      <%
+=begin%>
+ <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> 
+<%
+=end%>
     </div>
   </div>
 </nav>

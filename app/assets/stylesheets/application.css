@@ -16,10 +16,24 @@
 footer{
   background-color: hsl(216, 98%, 52%);
   color: aliceblue;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
-body{
-  background-color: hsl(180, 4%, 67%);
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  gap: 20px;
+}
+.card{
+  height:400px
+}
+.card-img-top{
+  height:200px
+}
+#myBtn{
+  position: sticky;
+  bottom: 30px;
 }

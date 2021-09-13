@@ -1,8 +1,13 @@
 class FlowsController < ApplicationController
-  before_action :set_flow, only: %i[ show edit update destroy ]
+  before_action :set_flow, only: %i[ show edit update destroy ]  
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit,:update,:destroy]
 
   # GET /flows or /flows.json
   def index
+    @flows = Flow.all
+  end
+  def all
     @flows = Flow.all
   end
 
@@ -55,7 +60,10 @@ class FlowsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def correct_user
+    @flow =current_user.flows.find_by(id: params[:id])
+    redirect_to flows_path, notice: "Not Authorized To Edit This Data" if @flow.nil?
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flow
@@ -64,6 +72,6 @@ class FlowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flow_params
-      params.require(:flow).permit(:title, :description,:user_id)
+      params.require(:flow).permit(:title, :description,:user_id,:image)
     end
 end
